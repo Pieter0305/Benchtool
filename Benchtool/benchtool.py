@@ -23,13 +23,18 @@ width=[]
 stream4 = os.popen('wmic cpu get datawidth')
 width = stream4.readlines()
 
-print('Processor Name: ', name[2].strip())
-print('Number of cores:', cores[2].strip())
-print('Processor width:', width[2].strip()) 
-print('Processor architecture:', arc)
-username = input("Please Enter Username:")
-devicename = input("Please Enter Device name:")
+pname = name[2].strip()
+core = cores[2].strip()
+bits = width[2].strip()
 
+
+print('Processor Name: ', pname)
+print('Number of cores:', core)
+print('Processor width:', bits) 
+print('Processor architecture:', arc)
+user = input("Please Enter Username:")
+devicename = input("Please Enter Device name:")
+print(type(user))
 numpyconfig = np.__config__.show()
 
 
@@ -104,31 +109,11 @@ jsonlabel = json.dumps(label)
 
 print('Uploading test results to database')
 
-dbc.execute('INSERT INTO "Benchmark_Tool_userdata" (username, device, float64, int16, int32, int64, label) VALUES (%s,%s,%s,%s,%s,%s,%s)', 
-    (username, devicename, jsonf64, jsoni16, jsoni32, jsoni64, jsonlabel))
+query = 'INSERT INTO "Benchmark_Tool_userdata" (username, device, pname, cores, width, arc, label, float64, int64, int32, int16) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);'
+
+
+dbc.execute(query, (user, devicename, pname, core, bits, arc, jsonlabel, jsonf64, jsoni64, jsoni32, jsoni16))
 dbconn.commit()
 dbc.close()
 dbconn.close()
-
-"""Print debugs
-print(fdic[1]*1000)
-print(i64dic[1]*1000)
-print(i32dic[1]*1000)
-print(i16dic[1]*1000)
-
-print(json_float64)
-print(label)
-
-with open("float64.json", "w") as outfile:
-    json.dump(fdic, outfile)
-
-with open("int64.json", "w") as outfile:
-    json.dump(i64dic, outfile)
-
-with open("int32.json", "w") as outfile:
-    json.dump(i32dic, outfile)
-
-with open("int16.json", "w") as outfile:
-    json.dump(i16dic, outfile)
-"""
 
