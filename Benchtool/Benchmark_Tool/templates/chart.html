@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Chart{% endblock %}
+
+{% block content %}
+    <h1>Display Data Here!</h1>
+    {% if user %}
+        <h3>Hello, {{ user }}. Here are you test results:</h3>
+        <p>
+            <ul>
+                <li>Your device name: {{ data.device }}</li>
+                <li>Architecture: {{ data.arc }}</li>
+                <li>Number of cores: {{ data.cores }}</li>
+                <li>CPU name: {{ data.pname }}</li>
+                <li>Number of bits: {{ data.width }}</li>
+            </ul>
+        </p>
+    {% else %}
+        <h3>Search is empty!</h3>
+    {% endif %}
+{% endblock %}

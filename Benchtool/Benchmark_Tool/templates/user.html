@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Chart{% endblock %}
+
+{% block content %}
+    <h1>Search User Here!</h1>
+    {% if error %}
+        <p style="color: red;">User is not in database.... Sorry try again!</p>
+    {% endif %}
+    <form action="" method="get">
+        <input type="text" name="user">
+        <input type="submit" value="Search">
+    </form>
+{% endblock %}
