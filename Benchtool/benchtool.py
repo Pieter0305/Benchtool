@@ -62,7 +62,7 @@ for i in range(Initial,Size,Step):
     e = time.perf_counter()
     count = count + 1 
     timedif = e-d
-    fdic.append(timedif)
+    fdic.append(timedif*1000)
     label.append(i)
 
 print('Running test for Int64')
@@ -75,7 +75,7 @@ for i in range(Initial,Size,Step):
     e = time.perf_counter()
     count = count + 1 
     timedif = e-d
-    i64dic.append(timedif)
+    i64dic.append(timedif*1000)
 
 print('Running test for Int32')
 
@@ -87,7 +87,7 @@ for i in range(Initial,Size,Step):
     e = time.perf_counter()
     count = count + 1 
     timedif = e-d
-    i32dic.append(timedif)
+    i32dic.append(timedif*1000)
 
 print('Running test for Int16')
 
@@ -99,7 +99,7 @@ for i in range(Initial,Size,Step):
     e = time.perf_counter()
     count = count + 1 
     timedif = e-d
-    i16dic.append(timedif)
+    i16dic.append(timedif*1000)
 
 jsonf64 = json.dumps(fdic)
 jsoni64 = json.dumps(i64dic)

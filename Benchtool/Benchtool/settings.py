@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'chartjs',
     'Benchmark_Tool',
-    'accounts',
 ]
 
 MIDDLEWARE = [

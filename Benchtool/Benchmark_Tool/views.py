@@ -21,7 +21,7 @@ def search(request):
             error = True
             return render(request, 'user.html', {'error': error})
         else:
-            return render(request, 'chart.html', {'user': user, 'data': data})
+            return render(request, 'chartist.html', {'user': user, 'data': data})
     else:
         error = False
         return render(request, 'user.html', {'error': error})
