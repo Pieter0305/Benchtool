@@ -1,10 +1,10 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import Home, About, search
+from .views import Home, search, filedl
 
 urlpatterns = [
     path('', Home.as_view(), name='home'),
-    path('about/', About.as_view(), name='about'),
     path('search/', search, name='search'),
+    path('download/', filedl, name='download'),
 
 ]

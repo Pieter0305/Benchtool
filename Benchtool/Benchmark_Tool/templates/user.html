@@ -3,12 +3,14 @@
 {% block title %}Chart{% endblock %}
 
 {% block content %}
-    <h1>Search User Here!</h1>
+    <h1 style = 'text-align: center'>Search Username Here!</h1>
     {% if error %}
-        <p style="color: red;">User is not in database.... Sorry try again!</p>
+        <p style="color: red; text-align: center">User is not in database.... Sorry try again!</p>
     {% endif %}
+    <div style = 'text-align: center'>
     <form action="" method="get">
         <input type="text" name="user">
         <input type="submit" value="Search">
     </form>
+    </div>
 {% endblock %}
