@@ -34,7 +34,7 @@ print('Processor width:', bits)
 print('Processor architecture:', arc)
 user = input("Please Enter Username:")
 devicename = input("Please Enter Device name:")
-print(type(user))
+
 numpyconfig = np.__config__.show()
 
 
@@ -62,7 +62,8 @@ for i in range(Initial,Size,Step):
     e = time.perf_counter()
     count = count + 1 
     timedif = e-d
-    fdic.append(timedif*1000)
+    flog = np.log10(timedif)
+    fdic.append(flog)
     label.append(i)
 
 print('Running test for Int64')
@@ -75,7 +76,8 @@ for i in range(Initial,Size,Step):
     e = time.perf_counter()
     count = count + 1 
     timedif = e-d
-    i64dic.append(timedif*1000)
+    i64log = np.log10(timedif)
+    i64dic.append(i64log)
 
 print('Running test for Int32')
 
@@ -87,7 +89,8 @@ for i in range(Initial,Size,Step):
     e = time.perf_counter()
     count = count + 1 
     timedif = e-d
-    i32dic.append(timedif*1000)
+    i32log = np.log10(timedif)
+    i32dic.append(i32log)
 
 print('Running test for Int16')
 
@@ -99,7 +102,8 @@ for i in range(Initial,Size,Step):
     e = time.perf_counter()
     count = count + 1 
     timedif = e-d
-    i16dic.append(timedif*1000)
+    i16log = np.log10(timedif)
+    i16dic.append(i16log)
 
 jsonf64 = json.dumps(fdic)
 jsoni64 = json.dumps(i64dic)
